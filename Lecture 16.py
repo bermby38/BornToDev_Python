@@ -1,1 +1,10 @@
+print("Hello World")
+print(10)
+print(10.1111)
+print(False)
+
 print(type("Hello World"))
+print(type(10))
+print(type(10.1111))
+print(type(False))
+print(type(10+3.5))
