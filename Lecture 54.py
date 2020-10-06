@@ -1,40 +1,39 @@
 def login():
     usernameInput = input("Username : ")
     passwordInput = input("Password : ")
-    while usernameInput != "admin" or passwordInput != "1234":
-        print("--Username or Password wrong--")
-        usernameInput = input("Username : ")
-        passwordInput = input("Password : ")
-    return True
+    if usernameInput == "admin" and passwordInput == "1234":
+        return True
+    else:
+        return False
 
 def showMenu():
-    print("---ABC Shop---")
-    print("1. Calculate VAT 7%")
-    print("2. Calculate Price")
-    selectMenu()
+    print("----- iShop -----")
+    print("1. Vat Calculator")
+    print("2. Price Calculator")
 
-def selectMenu():
-    inputNumber = input("Select Function :")
-    if inputNumber == "1":
-        inputPrice = int(input("Input price : "))
-        print(vatCalculate(inputPrice))
-    elif inputNumber == "2":
-        priceCalculate()
-    else:
-        print("---Wrong Number---")
-        showMenu()
+def menuSelect():
+    userSelected = int(input(">>"))
+    return userSelected
 
-def vatCalculate(totalPrice):
+def vatCalculator(totalPrice):
+    vat = 7
+    result = totalPrice + (totalPrice * vat / 100)
+    return result
 
-    totalPrice = totalPrice + (totalPrice*0.07)
-    return totalPrice
-
-def priceCalculate():
+def priceCalculator():
     price1 = int(input("First Product Price : "))
     price2 = int(input("Second Product Price : "))
-    print(vatCalculate(price1 + price2))
+    return vatCalculator(price1 + price2)
 
-
-if login():
-    print("Login Succeed")
-    showMenu()
+while not login():
+    print("---Username or Password Wrong---")
+print("Login Succeed")
+showMenu()
+selectedItem = menuSelect()
+if selectedItem == 1:
+    totalPrice = int(input("Total Price : "))
+    print(vatCalculator(totalPrice))
+elif selectedItem == 2:
+    print(priceCalculator())
+else:
+    print("Wrong Item")
