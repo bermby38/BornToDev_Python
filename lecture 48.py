@@ -1,5 +1,5 @@
-numberInput = input("Input number : ")
-starCount = ""
+numberInput = int(input("Input number : "))
 print(numberInput)
-while(1=1):
+print("*" * numberInput)
+
     
