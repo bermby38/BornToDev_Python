@@ -1,7 +1,9 @@
 orderList = []
+menuDict = {"ข้าวมันไก่":45, "ข้าวมันไก่ทอด":45, "ข้าวมันไก่ผสม":50}
 
 def showmenu():
     print("Dev Kitchen".center(30,"-"))
+    print(menuDict.keys())
 
 def orderfood():
     while True:
@@ -9,9 +11,8 @@ def orderfood():
         if(orderName.lower() == "exit"):
             break
         else:
-            orderPrice = int(input("Price : "))
+            orderPrice = menuDict[orderName]
             orderList.append([orderName,orderPrice])
-            #priceList.append(int(menuPrice))
 
 def printbill():
     print("My food".center(30,"-"))
@@ -21,9 +22,10 @@ def printbill():
 
 def sumbill():
     sum = 0
-    for i in range(len(menuList)):
-        sum += menuList[i][1]
+    for i in range(len(orderList)):
+        sum += orderList[i][1]
     return sum
 
+showmenu()
 orderfood()
 printbill()
