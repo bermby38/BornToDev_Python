@@ -1,0 +1,18 @@
+from tkinter import *
+
+def sayHelloWorld():
+   print("Hello World")
+
+def sayMyname():
+   print("My name is Tul")
+
+def sayBorn():
+   print("Born in Bangkok")
+
+MainWindow = Tk()
+
+button = Button(MainWindow, text="Click me 1", command=sayHelloWorld).grid(row=0, column=1)
+button2 = Button(MainWindow, text="Click me 2", command=sayMyname).grid(row=1, column=3)
+button3 = Button(MainWindow, text="Click me 3", command=sayBorn).grid(row=0, column=2)
+
+MainWindow.mainloop()
