@@ -1,5 +1,4 @@
 import sys
-import pa
 
 randomList = [10,'6','a', 0, 2]
 for entry in randomList:
