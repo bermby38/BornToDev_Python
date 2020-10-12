@@ -1,8 +1,10 @@
 from tkinter import *
+import math
 
 
 def leftclickbutton(event):
-    print(textboxWeight.get())
+    #print(float(textboxWeight.get()) / math.pow(float(textboxHeight.get()) / 100, 2))
+    labelResult.configure(text=float(textboxWeight.get()) / math.pow(float(textboxHeight.get()) / 100, 2))
 
 
 mainWindow = Tk()
@@ -18,5 +20,8 @@ textboxWeight.grid(row=1, column=1)
 buttonCalculate = Button(mainWindow, text="คำนวณ BMI")
 buttonCalculate.grid(row=2, column=0)
 buttonCalculate.bind('<Button-1>', leftclickbutton)
+labelResult = Label(mainWindow,text="ผลลัพธ์")
+labelResult.grid(row=2, column=1)
+#labelResult.configure(text="TEst")
 
 mainWindow.mainloop()
